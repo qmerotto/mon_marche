@@ -24,3 +24,11 @@ Deux modèles identifiés, `Order` et `Product`, liés par une relation many to 
 - En cas d'erreur de traitement une mécanique de fallback est nécessaire. On peut imaginer l'envoi du payload dans une queue dédiée pour un traitement spécifique en fonction de l'erreur levée.
 - Ajouter des validations sur les données reçues.
 - Ajouter du rate limiting et/ou de l'autoscaling.
+
+### Fonctionnement
+- Créer un fichier `.env` à la racine du projet contenant les variables d'environnement décrites dans le fichier `env.conf`
+- Lancer le service
+
+```
+go run main.go
+```
