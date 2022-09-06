@@ -16,9 +16,9 @@ func Init() {
 		c := &consumer{
 			id:           i,
 			consumerPool: consumerPool,
-			messages:     make(chan []byte),
-			Parser:       order.GetParser(),
-			Persistor:    dbOrder.GetPersistor(),
+			messages:     make(chan []byte, 1),
+			parser:       order.GetParser(),
+			persistor:    dbOrder.GetPersistor(),
 		}
 
 		go c.start()

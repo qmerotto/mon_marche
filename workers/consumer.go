@@ -10,8 +10,8 @@ type consumer struct {
 	id           int
 	consumerPool chan *consumer
 	messages     chan []byte
-	Parser       order.Parser
-	Persistor    dbOrder.Persistor
+	parser       order.Parser
+	persistor    dbOrder.Persistor
 }
 
 func (c *consumer) start() {
@@ -28,13 +28,13 @@ func (c *consumer) start() {
 func (c *consumer) process(message []byte) {
 	fmt.Printf("Consumer %d, processing message: %s\n", c.id, string(message))
 
-	order, err := c.Parser.Parse(message)
+	order, err := c.parser.Parse(message)
 	if err != nil {
 		c.fallback(message, err)
 		return
 	}
 
-	if err = c.Persistor.Create(order); err != nil {
+	if err = c.persistor.Create(order); err != nil {
 		c.fallback(message, err)
 		return
 	}
