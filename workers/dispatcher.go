@@ -10,7 +10,7 @@ var InputChannel chan []byte
 
 func Init() {
 	consumerPool = make(chan *consumer, 10)
-	InputChannel = make(chan []byte)
+	InputChannel = make(chan []byte, 10000)
 
 	for i := 0; i < 10; i++ {
 		c := &consumer{
