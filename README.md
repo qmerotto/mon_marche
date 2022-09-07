@@ -25,6 +25,7 @@ Deux modèles identifiés, `Order` et `Product`, liés par une relation many to 
 - Ajouter des validations sur les données reçues.
 - Ajouter du rate limiting et/ou de l'autoscaling.
 - Ajouter une mécanique de redémarrage des consumers en cas de panic
+- Ajouter une transaction pour la création des orders/products 
 
 ### Fonctionnement
 - Créer un fichier `.env` à la racine du projet contenant les variables d'environnement décrites dans le fichier `env.conf`
