@@ -13,7 +13,7 @@ Pour ce test j'ai fait les suppositions suivantes:
 Deux modèles identifiés, `Order` et `Product`, liés par une relation many to many.
 
 ### Traitement
-- On expose un endpoint en POST `/web_api/tickets`
+- On expose un endpoint en POST `/web_api/ticket`
 - Dans le handler associé, le payload de la requête est lu et envoyé dans une channel "buffurisée" de taille arbitrairement grande. (Ceci n'est pas optimal et provoquera un bloquage si le buffer est plein)
 - Un dispatcher, lancé en parallèle du serveur, consomme les payloads envoyés dans la channel précédente. Ce dispatcher a à disposition 10 consumers qui vont traiter les messages en parallèle.
 - Chaque message est parsé, validé et enregistré en db, si aucune erreur ne se produit.

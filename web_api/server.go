@@ -1,8 +1,9 @@
 package web_api
 
 import (
-	"github.com/gin-gonic/gin"
 	"test_tech/web_api/handlers"
+
+	"github.com/gin-gonic/gin"
 )
 
 func RunServer() {
@@ -17,7 +18,7 @@ func getRouter() *gin.Engine {
 
 	v1 := r.Group("/web_api")
 	{
-		v1.POST("/tickets", func(c *gin.Context) { handlers.Ticket(c) })
+		v1.POST("/ticket", func(c *gin.Context) { handlers.Ticket(c) })
 	}
 
 	return r
