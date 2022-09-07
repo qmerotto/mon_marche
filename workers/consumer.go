@@ -15,6 +15,8 @@ type consumer struct {
 }
 
 func (c *consumer) start() {
+	defer close(c.messages)
+
 	fmt.Printf("Starting worker %d\n", c.id)
 	for {
 		select {

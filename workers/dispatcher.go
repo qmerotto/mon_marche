@@ -27,6 +27,11 @@ func Init() {
 }
 
 func Dispatch() {
+	defer func() {
+		close(InputChannel)
+		close(consumerPool)
+	}()
+
 	for {
 		consumer := <-consumerPool
 		select {
